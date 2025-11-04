@@ -5,9 +5,9 @@ import type { NextRequest } from "next/server";
 
 export async function GET(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  context: { params: Promise<{ id: string }> } // Promise olarak al
 ) {
-  const { id } = params;
+  const { id } = await context.params; // await et
 
   try {
     const technology = await prisma.technology.findUnique({
