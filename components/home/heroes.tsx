@@ -1,14 +1,15 @@
-"use client";
+// components/home/heroes.tsx  (SERVER COMPONENT)
+import { getDictionary } from "@/lib/get-dictionary";
+import HeroesClient from "./heroesClient";
 
-import React from "react";
-import { HeroGeometric } from "@/components/ui/shadcn-io/shape-landing-hero";
-
-const Heroes: React.FC = (): React.JSX.Element => {
-  return (
-    <div>
-      <HeroGeometric />
-    </div>
-  );
+type HeroGeometricProps = {
+  locale: "tr" | "en";
+  className?: string;
 };
 
-export default Heroes;
+export default async function Heroes({ locale, className }: HeroGeometricProps) {
+  const dictAll = await getDictionary(locale);
+  const dict = dictAll.heroes;
+
+  return <HeroesClient dict={dict} className={className} locale={locale} />;
+}

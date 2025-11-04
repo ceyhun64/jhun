@@ -1,13 +1,27 @@
 [
   {
     "id": 1,
-    "title": "Build Modern UIs",
-    "summary": "Create stunning user interfaces with our comprehensive design system that scales for enterprise-grade applications.",
+    "title": "Build Modern UIs ",
+    "summary": "Create stunning user interfaces with our comprehensive design system that.",
     "url": "https://buildmodernuis.localhost",
     "image": "/gallery/8.png",
     "description": "Build Modern UIs is a comprehensive UI framework designed to accelerate the development of high-performance, responsive, and aesthetically pleasing web applications. This project focuses on creating reusable components, following atomic design principles, and integrating advanced animations for a seamless user experience.\n\nKey goals include ensuring accessibility compliance (WCAG 2.1), optimizing render performance for large-scale applications, and providing a flexible theming system to accommodate diverse brand identities.\n\nDevelopers can leverage pre-built UI modules such as dynamic forms, responsive grids, interactive dashboards, and advanced navigation patterns. The framework also supports real-time collaboration features and integrates smoothly with state management libraries, APIs, and authentication systems.\n\n ",
-    "technologies": ["React", "Next.js", "TypeScript", "TailwindCSS", "Framer Motion", "Storybook", "Jest", "React Query"],
-    "images": ["/gallery/8.png", "/gallery/8.png","/gallery/8.png", "/gallery/8.png"],
+    "technologies": [
+      {
+        "name": "React",
+        "icon": "ReactIcon",
+        "type": "Library",
+        "yoe": 3,
+        "color": "#61dafb"
+      },
+      { "name": "Next.js", "icon": "NextIcon", "type": "Framework", "yoe": 2 }
+    ],
+    "images": [
+      "/gallery/8.png",
+      "/gallery/8.png",
+      "/gallery/8.png",
+      "/gallery/8.png"
+    ],
     "demoUrl": "https://demo1.localhost:3000",
     "githubUrl": "https://github.com/user/build-modern-uis"
   },
@@ -18,7 +32,16 @@
     "url": "localhost:3000",
     "image": "/gallery/7.png",
     "description": "A dashboard that visualizes AI-driven insights with predictive analytics and dynamic charts.",
-    "technologies": ["React", "Chart.js", "Python", "TensorFlow", "Node.js"],
+    "technologies": [
+      {
+        "name": "React",
+        "icon": "ReactIcon",
+        "type": "Library",
+        "yoe": 3,
+        "color": "#61dafb"
+      },
+      { "name": "Next.js", "icon": "NextIcon", "type": "Framework", "yoe": 2 }
+    ],
     "images": ["/gallery/7.png", "/gallery/7-2.png"],
     "demoUrl": "https://demo2.localhost:3000",
     "githubUrl": "https://github.com/user/ai-dashboard"
@@ -30,7 +53,16 @@
     "url": "localhost:3000",
     "image": "/gallery/1.png",
     "description": "A quantum-inspired UI framework focusing on minimalistic design and high performance.",
-    "technologies": ["Next.js", "TypeScript", "TailwindCSS", "Framer Motion"],
+    "technologies": [
+      {
+        "name": "React",
+        "icon": "ReactIcon",
+        "type": "Library",
+        "yoe": 3,
+        "color": "#61dafb"
+      },
+      { "name": "Next.js", "icon": "NextIcon", "type": "Framework", "yoe": 2 }
+    ],
     "images": ["/gallery/1.png", "/gallery/1-2.png"]
   },
   {
@@ -40,7 +72,16 @@
     "url": "localhost:3000",
     "image": "/gallery/2.png",
     "description": "Enhanced version of Quantum UI System with more interactive components and animations.",
-    "technologies": ["Next.js", "React", "TailwindCSS", "Framer Motion"],
+    "technologies": [
+      {
+        "name": "React",
+        "icon": "ReactIcon",
+        "type": "Library",
+        "yoe": 3,
+        "color": "#61dafb"
+      },
+      { "name": "Next.js", "icon": "NextIcon", "type": "Framework", "yoe": 2 }
+    ],
     "images": ["/gallery/2.png", "/gallery/2-2.png"]
   },
   {
@@ -51,11 +92,14 @@
     "image": "/gallery/3.png",
     "description": "Automates the machine learning workflow from data preprocessing to model deployment.",
     "technologies": [
-      "Python",
-      "scikit-learn",
-      "TensorFlow",
-      "Docker",
-      "Kubernetes"
+      {
+        "name": "React",
+        "icon": "ReactIcon",
+        "type": "Library",
+        "yoe": 3,
+        "color": "#61dafb"
+      },
+      { "name": "Next.js", "icon": "NextIcon", "type": "Framework", "yoe": 2 }
     ],
     "images": ["/gallery/3.png", "/gallery/3-2.png"],
     "demoUrl": "https://demo5.localhost:3000"
@@ -67,7 +111,16 @@
     "url": "localhost:3000",
     "image": "/gallery/4.png",
     "description": "A suite that predicts trends, generates reports, and optimizes business performance.",
-    "technologies": ["Python", "Pandas", "Plotly", "React", "Next.js"],
+    "technologies": [
+      {
+        "name": "React",
+        "icon": "ReactIcon",
+        "type": "Library",
+        "yoe": 3,
+        "color": "#61dafb"
+      },
+      { "name": "Next.js", "icon": "NextIcon", "type": "Framework", "yoe": 2 }
+    ],
     "images": ["/gallery/4.png", "/gallery/4-2.png"]
   },
   {
@@ -77,7 +130,16 @@
     "url": "#",
     "image": "/gallery/5.png",
     "description": "Visualizes complex neural network architectures interactively for research and presentations.",
-    "technologies": ["Python", "PyTorch", "D3.js", "React"],
+    "technologies": [
+      {
+        "name": "React",
+        "icon": "ReactIcon",
+        "type": "Library",
+        "yoe": 3,
+        "color": "#61dafb"
+      },
+      { "name": "Next.js", "icon": "NextIcon", "type": "Framework", "yoe": 2 }
+    ],
     "images": ["/gallery/5.png", "/gallery/5-2.png"],
     "githubUrl": "https://github.com/user/neural-network-arch"
   },
@@ -88,7 +150,16 @@
     "url": "#",
     "image": "/gallery/6.png",
     "description": "Extended version with 3D visualization and real-time data simulation.",
-    "technologies": ["Python", "PyTorch", "Three.js", "React"],
+    "technologies": [
+      {
+        "name": "React",
+        "icon": "ReactIcon",
+        "type": "Library",
+        "yoe": 3,
+        "color": "#61dafb"
+      },
+      { "name": "Next.js", "icon": "NextIcon", "type": "Framework", "yoe": 2 }
+    ],
     "images": ["/gallery/6.png", "/gallery/6-2.png"]
   }
 ]

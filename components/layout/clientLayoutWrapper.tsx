@@ -1,22 +1,19 @@
 "use client";
 
-import { usePathname } from "next/navigation";
-import SocialSidebar from "@/components/layout/socialSidebar";
+import { ReactNode } from "react";
+import ScrollToTopButton from "./scroll";
+import { Toaster } from "sonner";
 
-export default function ClientLayoutWrapper({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
-  const pathname = usePathname();
-
-  // Admin sayfalarında sidebar görünmesin
-  const isAdminPage = pathname?.startsWith("/admin") ?? false;
-
+export default function ClientLayoutWrapper({ children }: { children: ReactNode }) {
   return (
     <>
       {children}
-      {!isAdminPage && <SocialSidebar />}
+      <ScrollToTopButton />
+      <Toaster
+        richColors
+        position="bottom-right"
+        toastOptions={{ style: { zIndex: 9999 } }}
+      />
     </>
   );
 }

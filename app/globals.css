@@ -156,3 +156,16 @@
 button {
   cursor: pointer;
 }
+
+/* globals.css veya component jsx style */
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-none {
+  -ms-overflow-style: none; /* IE, Edge */
+  scrollbar-width: none; /* Firefox */
+}
+html {
+  overflow-y: scroll; /* Scrollbar her zaman sabit olsun, kayma olmasın */
+}

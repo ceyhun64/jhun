@@ -4,7 +4,9 @@ import { motion } from "framer-motion";
 import { Circle, Sparkles } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { MagneticButton } from "../magnetic-button";
+import { useTranslations } from "next-intl";
 
+// --- ElegantShape Bileşeni ---
 type ElegantShapeProps = {
   className?: string;
   delay?: number;
@@ -62,25 +64,26 @@ function ElegantShape({
   );
 }
 
+// --- HeroGeometric Bileşeni ---
 type HeroGeometricProps = {
-  badge?: string;
-  title1?: string;
-  title2?: string;
-  description?: string;
-  ctaText?: string;
-  ctaHref?: string;
   className?: string;
+  ctaHref?: string;
 };
 
 export function HeroGeometric({
-  badge = ".jhun{ }",
-  title1 = "Markanızı Dijitalleştirin",
-  title2 = "Modern & Profesyonel Web Sitelerine Sahip Olun",
-  description = "Yaratıcı tasarım ve son teknoloji ile işletmenize özel modern web siteleri üretiyoruz. Dijital dünyada öne çıkın.",
-  ctaText = "Hemen İletişime Geç",
   ctaHref = "/contact",
   className,
 }: HeroGeometricProps) {
+  // next-intl useTranslations hook
+  const t = useTranslations("hero");
+
+  // Çevirileri çekiyoruz
+  const badge = t("badge");
+  const title1 = t("title1");
+  const title2 = t("title2");
+  const description = t("description");
+  const ctaText = t("ctaText");
+
   const fadeUpVariants = {
     hidden: { opacity: 0, y: 40 },
     visible: (i: number) => ({
@@ -146,8 +149,6 @@ export function HeroGeometric({
           gradient="from-orange-300/15"
           className="left-[20%] top-[10%]"
         />
-
-        {/* Ekstra ElegantShapes */}
         <ElegantShape
           delay={0.8}
           width={500}
@@ -169,6 +170,7 @@ export function HeroGeometric({
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 md:px-6">
         <div className="max-w-5xl mx-auto text-center">
+          {/* Badge */}
           <motion.div
             custom={0}
             variants={fadeUpVariants}
@@ -180,6 +182,7 @@ export function HeroGeometric({
             <span className="text-sm text-white/70 tracking-wide">{badge}</span>
           </motion.div>
 
+          {/* Title */}
           <motion.div
             custom={1}
             variants={fadeUpVariants}
@@ -195,6 +198,7 @@ export function HeroGeometric({
             </h1>
           </motion.div>
 
+          {/* Description */}
           <motion.div
             custom={2}
             variants={fadeUpVariants}

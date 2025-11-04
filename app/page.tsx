@@ -1,30 +1,30 @@
-"use client";
 import Navbar from "@/components/layout/navbar";
 import Heroes from "@/components/home/heroes";
 import Banner from "@/components/home/banner";
 import About from "@/components/home/about";
-import Footer from "@/components/layout/footer";
 import ContactSection from "@/components/home/contact";
+import Footer from "@/components/layout/footer";
 import Gallery from "@/components/home/gallery";
-import Scroll from "@/components/layout/scroll"; // buton componenti
+import Scroll from "@/components/layout/scroll";
 
-export default function Home() {
+const DEFAULT_LOCALE = "tr";
+
+export default async function Home() {
+  const locale = DEFAULT_LOCALE;
+
   return (
     <div className="relative bg-black">
-      {/* Navbar sabit, üstte */}
-      <Navbar />
+      <Navbar locale={locale} />
 
-      {/* Navbar yüksekliği kadar boşluk */}
       <div className="pt-10">
-        <Heroes />
-        <Banner />
-        <Gallery />
-        <About />
-        <ContactSection />
-        <Footer />
+        <Heroes locale={locale} />
+        <Banner locale={locale} />
+        <Gallery locale={locale} />
+        <About locale={locale} />
+        <ContactSection locale={locale} />
+        <Footer locale={locale} />
       </div>
 
-      {/* Yukarı çık butonu */}
       <Scroll />
     </div>
   );

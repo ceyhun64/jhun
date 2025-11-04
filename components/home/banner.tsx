@@ -1,10 +1,14 @@
-"use client";
 import { ThreeDMarquee } from "@/components/ui/shadcn-io/3d-marquee";
 import { AuroraBackground } from "@/components/ui/shadcn-io/aurora-background";
-import { motion } from "framer-motion";
+import { getDictionary } from "@/lib/get-dictionary";
 
+type Props = {
+  locale: "tr" | "en";
+};
+const Banner = async ({ locale }: Props) => {
+  const dictAll = await getDictionary(locale);
+  const dict = dictAll.banner;
 
-export default function ThreeDMarqueeDemo() {
   const images = [
     "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/768px-React-icon.svg.png?20220125121207",
     "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/768px-React-icon.svg.png?20220125121207",
@@ -54,27 +58,20 @@ export default function ThreeDMarqueeDemo() {
           {/* HERO BÖLÜMÜ */}
           <div className="text-center py-16 z-50">
             <h1 className="text-3xl sm:text-6xl font-extrabold tracking-tight text-gray-900 dark:text-white leading-tight">
-               Web Sitelerinizi Hızla Geliştirelim
+              {dict.title}
             </h1>
             <p className="mt-6 text-md sm:text-xl text-gray-700 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
-              Web sitelerinizi React, Next.js, Tailwind CSS ve TypeScript gibi
-              son teknoloji araçlarla geliştiriyoruz. Bu sayede siteleriniz
-              hızlı, etkileşimli ve mobil uyumlu olur, kullanıcı deneyimi üst
-              seviyeye çıkar. Sürükleyici animasyonlar ve modern tasarım
-              örnekleri ile projeleriniz fark yaratır.
+              {dict.subtitle}
             </p>
           </div>
 
           {/* BİLGİ / CTA BÖLÜMÜ */}
           <div className="text-center mb-16">
             <h2 className="text-xl sm:text-3xl font-semibold text-gray-800 dark:text-gray-200">
-              Kullanılan Teknolojiler
+              {dict.tech_title}
             </h2>
             <p className="mt-4 text-gray-600 dark:text-gray-400 max-w-2xl mx-auto sm:text-xl leading-relaxed text-md">
-              React ve Next.js ile dinamik ve ölçeklenebilir uygulamalar
-              geliştiriyoruz. TypeScript ile hatasız kodlama sağlarken, Tailwind
-              CSS ile modern ve estetik tasarımlar sunuyoruz. Bu teknolojiler,
-              projelerinizi hızlı, güvenilir ve kullanıcı dostu hale getirir.
+              {dict.tech_subtitle}
             </p>
           </div>
         </AuroraBackground>
@@ -84,4 +81,6 @@ export default function ThreeDMarqueeDemo() {
       </div>
     </div>
   );
-}
+};
+
+export default Banner;
