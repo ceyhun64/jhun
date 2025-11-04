@@ -46,9 +46,9 @@ async function deleteImageFromCloudinary(imageUrl?: string | null) {
 // ------------------------- GET -------------------------
 export async function GET(
   req: NextRequest,
-  context: { params: { id: string } } // Promise yerine direkt obje
+  context: { params: Promise<{ id: string }> } // Promise olarak al
 ) {
-  const { id } = context.params;
+  const { id } = await context.params; // await et
 
   const project = await prisma.project.findUnique({
     where: { id },
