@@ -11,19 +11,24 @@ function getLocale(request: NextRequest) {
   return locales.includes(preferred) ? preferred : "tr";
 }
 
-// 🔥 Eskiden: export function middleware()
-// ✅ Şimdi: export function proxy()
 export function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
+  // 🔒 Statik dosyalar, API ve _next klasörü hariç
   if (
     PUBLIC_FILE.test(pathname) ||
-    pathname.includes("/api/") ||
+    pathname.startsWith("/api") ||
     pathname.startsWith("/_next")
   ) {
     return;
   }
 
+  // 🧩 Admin sayfasını da locale yönlendirmesinden hariç tut
+  if (pathname.startsWith("/admin")) {
+    return; // admin'e dokunma, /tr/admin yapma
+  }
+
+  // 🌍 Locale eklemesi gereken sayfalar
   const pathnameIsMissingLocale = locales.every(
     (locale) => !pathname.startsWith(`/${locale}`)
   );

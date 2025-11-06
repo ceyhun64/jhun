@@ -185,7 +185,7 @@ export default function ProjectDetailClient({ dict, locale }: Props) {
   ].filter((img): img is string => Boolean(img)); // boş olanları çıkar
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-black via-slate-800 to-black text-white py-10 px-6 md:px-20 overflow-hidden relative font-mono">
+    <div className="min-h-screen bg-gradient-to-b from-black via-slate-900 to-black text-white py-4 md:py-10 px-5 md:px-20 overflow-hidden relative font-mono">
       <SparklesCore
         id="tsparticlesfullpage1"
         background="transparent"
@@ -204,8 +204,9 @@ export default function ProjectDetailClient({ dict, locale }: Props) {
         transition={{ duration: 0.7, ease: "easeOut" }}
         className="max-w-8xl mx-auto mt-20 p-6 md:p-12 rounded-3xl border border-blue-500/20 bg-white/5 backdrop-blur-sm shadow-2xl flex flex-col lg:flex-row items-start lg:items-center gap-12 relative overflow-hidden"
       >
-        {/* Sol: Büyük görsel + küçük görseller */}
+        {/* Sol: Görseller */}
         <div className="w-full lg:w-1/2 flex flex-col gap-6">
+        
           <motion.div
             className="relative rounded-xl overflow-hidden border border-white/10 bg-white/5 backdrop-blur-md shadow-2xl"
             whileHover={{ scale: 1.02 }}
@@ -229,23 +230,25 @@ export default function ProjectDetailClient({ dict, locale }: Props) {
 
           {smallImages.length > 0 && (
             <div className="relative">
+              {/* Sol ok */}
               <button
                 onClick={() => scroll("left")}
-                className="absolute -left-6 top-1/2 -translate-y-1/2 z-10 bg-white/10 hover:bg-white/20 text-white p-2 rounded-full backdrop-blur-md transition"
+                className="absolute -left-4 top-1/2 -translate-y-1/2 z-10 bg-white/10 hover:bg-white/20 text-white p-2 rounded-full backdrop-blur-md transition sm:-left-6"
               >
-                <ArrowLeft className="w-5 h-5" />
+                <ArrowLeft className="w-4 h-4 sm:w-5 sm:h-5" />
               </button>
 
+              {/* Küçük görseller */}
               <div
                 ref={carouselRef}
-                className="flex gap-4 overflow-x-auto scroll-smooth py-2 scrollbar-none"
+                className="flex gap-3 sm:gap-4 overflow-x-auto scroll-smooth py-2 scrollbar-none"
               >
                 {smallImages.map((img, idx) => (
                   <motion.div
                     key={idx}
                     whileHover={{ scale: 1.05 }}
-                    className="relative w-60 h-36 shrink-0 rounded-lg shadow-lg overflow-hidden border border-white/10 cursor-pointer"
                     onClick={() => handleThumbnailClick(img)}
+                    className="relative w-32 h-20 sm:w-60 sm:h-36 shrink-0 rounded-lg shadow-lg overflow-hidden border border-white/10 cursor-pointer"
                   >
                     <Image
                       src={img}
@@ -257,39 +260,53 @@ export default function ProjectDetailClient({ dict, locale }: Props) {
                 ))}
               </div>
 
+              {/* Sağ ok */}
               <button
                 onClick={() => scroll("right")}
-                className="absolute -right-6 top-1/2 -translate-y-1/2 z-10 bg-white/10 hover:bg-white/20 text-white p-2 rounded-full backdrop-blur-md transition"
+                className="absolute -right-4 top-1/2 -translate-y-1/2 z-10 bg-white/10 hover:bg-white/20 text-white p-2 rounded-full backdrop-blur-md transition sm:-right-6"
               >
-                <ArrowRight className="w-5 h-5" />
+                <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
               </button>
             </div>
           )}
 
-          {/* Butonlar */}
-          <div className="flex flex-wrap gap-4 mt-6">
+          {/* Butonlar (sadece masaüstünde görsellerin altında) */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="hidden lg:flex flex-wrap gap-3 sm:gap-4 mt-4"
+          >
+            {githubUrl && (
+              <Button
+                onClick={() => window.open(githubUrl, "_blank")}
+                className="flex items-center gap-2 bg-[#24292e] hover:bg-[#333] text-white px-4 py-2 rounded-full font-semibold shadow-[0_0_10px_rgba(0,0,0,0.3)] transition-all text-sm sm:text-base"
+              >
+                <Github className="w-4 h-4 text-white" />
+                GitHub
+              </Button>
+            )}
             {demoUrl && (
               <Button
                 onClick={() => window.open(demoUrl, "_blank")}
-                className="flex items-center gap-2 bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-400 hover:to-orange-500 text-white px-4 py-2 rounded-full font-semibold shadow-[0_0_12px_rgba(249,115,22,0.4)] transition-all"
+                className="flex items-center gap-2 bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-400 hover:to-orange-500 text-white px-3 py-2 sm:px-4 sm:py-2 rounded-full font-semibold shadow-[0_0_12px_rgba(249,115,22,0.4)] transition-all text-sm sm:text-base"
               >
                 {dict.demoButton} <ArrowRight className="w-4 h-4" />
               </Button>
             )}
-            {githubUrl && (
-              <Button
-                onClick={() => window.open(githubUrl, "_blank")}
-                className="flex items-center gap-2 bg-gray-800 hover:bg-gray-700 text-white px-6 py-3 rounded-full font-semibold shadow-lg hover:shadow-xl transition-all"
-              >
-                GitHub <Github className="w-4 h-4" />
-              </Button>
-            )}
-          </div>
+          </motion.div>
         </div>
 
-        {/* Sağ: Başlık + açıklama */}
-        <div className="relative flex-1 flex flex-col justify-center gap-6 p-4 md:p-0">
-          <h1 className="text-5xl md:text-6xl font-extrabold tracking-tight font-mono text-transparent bg-clip-text bg-gradient-to-r from-amber-500 via-amber-300 to-yellow-100 drop-shadow-[0_0_12px_rgba(255,180,0,0.7)] hover:drop-shadow-[0_0_20px_rgba(255,200,0,0.9)] transition-shadow duration-300">
+        {/* Sağ: Bilgi Alanı */}
+        <div className="relative flex-1 flex flex-col justify-center gap-6 md:p-0">
+          {/* Glow arka plan */}
+          <div className="absolute inset-0 -z-10">
+            <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-96 h-96 bg-gradient-to-r from-amber-400 via-orange-400 to-yellow-300 opacity-25 rounded-full blur-3xl"></div>
+            <div className="absolute bottom-0 right-1/4 w-72 h-72 bg-gradient-to-r from-amber-300 via-orange-500 to-yellow-400 opacity-20 rounded-full blur-2xl"></div>
+          </div>
+
+          {/* Başlık */}
+          <h1 className="text-3xl md:text-6xl font-extrabold tracking-tight font-mono text-transparent bg-clip-text bg-gradient-to-r from-amber-500 via-amber-300 to-yellow-100 drop-shadow-[0_0_12px_rgba(255,180,0,0.7)] hover:drop-shadow-[0_0_20px_rgba(255,200,0,0.9)] transition-shadow duration-300">
             <GradientText
               gradient="linear-gradient(90deg, #f59e0b 0%, #fbbf24 40%, #fef3c7 60%, #fbbf24 80%, #f59e0b 100%)"
               text={title}
@@ -297,14 +314,44 @@ export default function ProjectDetailClient({ dict, locale }: Props) {
             />
           </h1>
 
+          {/* Neon alt çizgi */}
           <div className="h-1 w-24 bg-gradient-to-r from-blue-400 via-blue-500 to-blue-600 rounded-full mt-2"></div>
 
+          {/* Özet */}
           <p className="text-gray-200 text-lg md:text-xl leading-relaxed font-sans">
             {summary}
           </p>
-          <p className="text-gray-300 leading-relaxed text-base md:text-md font-mono whitespace-pre-line">
+
+          {/* Açıklama */}
+          <p className="text-gray-300 leading-relaxed text-sm md:text-md font-mono whitespace-pre-line">
             {description}
           </p>
+
+          {/* Butonlar (sadece mobilde, en altta) */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="flex flex-wrap justify-center gap-3 sm:gap-4 mt-4 md:mt-6 lg:hidden"
+          >
+            {githubUrl && (
+              <Button
+                onClick={() => window.open(githubUrl, "_blank")}
+                className="flex items-center gap-2 bg-[#24292e] hover:bg-[#333] text-white px-4 py-2 rounded-full font-semibold shadow-[0_0_10px_rgba(0,0,0,0.3)] transition-all text-sm sm:text-base"
+              >
+                <Github className="w-4 h-4 text-white" />
+                GitHub
+              </Button>
+            )}
+            {demoUrl && (
+              <Button
+                onClick={() => window.open(demoUrl, "_blank")}
+                className="flex items-center gap-2 bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-400 hover:to-orange-500 text-white px-4 py-2 rounded-full font-semibold shadow-[0_0_12px_rgba(249,115,22,0.4)] transition-all text-sm sm:text-base"
+              >
+                {dict.demoButton} <ArrowRight className="w-4 h-4" />
+              </Button>
+            )}
+          </motion.div>
         </div>
       </motion.div>
 
@@ -313,61 +360,59 @@ export default function ProjectDetailClient({ dict, locale }: Props) {
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
-        className="max-w-8xl mx-auto mt-20 p-6 md:p-12 rounded-3xl border border-white/10 bg-white/5 backdrop-blur-xs shadow-lg"
+        className="max-w-8xl mx-auto mt-20 p-2 md:p-12 rounded-3xl border border-white/10 bg-white/5 backdrop-blur-xs shadow-lg"
       >
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          <div className="flex flex-col space-y-6">
-            <h2 className="text-5xl font-extrabold text-white font-mono">
+          {/* Sol sütun */}
+          <div className="flex flex-col space-y-2 md:space-y-6">
+            <h2 className="text-3xl md:text-5xl font-extrabold text-white font-mono mt-2 p-4 md:p-0">
               {dict.technologiesTitle}
             </h2>
-            <pre className="bg-gray-900 text-white p-4 rounded-2xl font-mono overflow-x-auto whitespace-pre-wrap text-sm leading-relaxed mt-6">
+
+            <pre className="bg-gray-950/60 text-white p-2 md:p-4 rounded-2xl font-mono overflow-x-auto whitespace-pre-wrap text-sm leading-relaxed mt-4 md:mt-6">
               <code>
-                {/* 1. Paragraf */}
                 <span className="text-blue-400">&lt;div class=</span>
                 <span className="text-yellow-400">"project-info"</span>
                 <span className="text-blue-400">&gt;</span>
-                {"\n  "}
+                {"\n  "}
                 <span className="text-blue-400">&lt;p&gt;</span>
-                {"\n    "}
+                {"\n    "}
                 {dict.technologiesIntro.p1}
-                {"\n  "}
+                {"\n  "}
                 <span className="text-blue-400">&lt;/p&gt;</span>
                 {"\n"}
-                {/* 2. Paragraf */}
-                {"\n  "}
+                {"\n  "}
                 <span className="text-blue-400">&lt;p&gt;</span>
-                {"\n    "}
+                {"\n    "}
                 {dict.technologiesIntro.p2}
-                {"\n  "}
+                {"\n  "}
                 <span className="text-blue-400">&lt;/p&gt;</span>
                 {"\n"}
-                {/* 3. Paragraf */}
-                {"\n  "}
+                {"\n  "}
                 <span className="text-blue-400">&lt;p&gt;</span>
-                {"\n    "}
+                {"\n    "}
                 {dict.technologiesIntro.p3}
-                {"\n  "}
+                {"\n  "}
                 <span className="text-blue-400">&lt;/p&gt;</span>
                 {"\n"}
-                {/* 4. Paragraf (yanıp sönen imleç ile) */}
-                {"\n  "}
+                {"\n  "}
                 <span className="text-blue-400">&lt;p&gt;</span>
-                {"\n    "}
+                {"\n    "}
                 {dict.technologiesIntro.p4}
                 <span className="ml-1 animate-blink text-green-400">_</span>
-                {"\n  "}
+                {"\n  "}
                 <span className="text-blue-400">&lt;/p&gt;</span>
                 {"\n"}
                 <span className="text-blue-400">&lt;/div&gt;</span>
               </code>
             </pre>
+
             <style jsx>{`
               .animate-blink {
                 display: inline-block;
                 width: 1ch;
                 animation: blink 2s infinite;
               }
-
               @keyframes blink {
                 0%,
                 50%,
@@ -381,7 +426,8 @@ export default function ProjectDetailClient({ dict, locale }: Props) {
               }
             `}</style>
 
-            <div className="flex space-x-6 mt-8">
+            {/* 🌐 Masaüstü: Butonlar (yerinde kalır) */}
+            <div className="hidden lg:flex space-x-6 mt-2 md:mt-8 p-4 md:p-0">
               <a
                 href={githubUrl || "#"}
                 target="_blank"
@@ -400,17 +446,39 @@ export default function ProjectDetailClient({ dict, locale }: Props) {
               </Link>
             </div>
           </div>
-          <div className="space-y-4 mt-10">
-            {/* API'dan gelen technologies kullanılıyor */}
+
+          {/* Sağ sütun */}
+          <div className="space-y-4 mt-0 md:mt-10">
             {technologies.map((tech, idx) => (
               <TechnologyItem
-                key={tech._id ? tech._id.toString() : idx} // fallback olarak index kullan
+                key={tech._id ? tech._id.toString() : idx}
                 tech={tech}
               />
             ))}
+
+            {/* 📱 Mobil: Butonlar en altta */}
+            <div className="flex lg:hidden flex-row space-x-6 mt-8 p-4">
+              <a
+                href={githubUrl || "#"}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center space-x-2 text-purple-400 hover:text-purple-300 transition-colors group"
+              >
+                <ArrowRight className="w-4 h-4 transform rotate-180 group-hover:rotate-0 transition-transform duration-300" />
+                <span className="font-medium">{dict.links.openGithub}</span>
+              </a>
+              <Link
+                href={`/${locale}/contact`}
+                className="flex items-center justify-center space-x-2 text-pink-400 hover:text-pink-300 transition-colors group"
+              >
+                <ArrowRight className="w-4 h-4 transform rotate-180 group-hover:rotate-0 transition-transform duration-300" />
+                <span className="font-medium">{dict.links.getInTouch}</span>
+              </Link>
+            </div>
           </div>
         </div>
       </motion.div>
+
       {/* --- CTA (Call To Action) Bölümü --- */}
       <motion.div
         initial={{ opacity: 0, y: 40 }}
@@ -424,7 +492,7 @@ export default function ProjectDetailClient({ dict, locale }: Props) {
             {dict.cta.title}
           </h2>
           <p className="text-gray-200 text-lg mt-3 font-sans">
-            {dict.cta.subtitle}{" "}
+            {dict.cta.subtitle}
           </p>
 
           <button

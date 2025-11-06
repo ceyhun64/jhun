@@ -166,7 +166,7 @@ export default function Projects() {
                   <img
                     src={project.image}
                     alt={project.title}
-                    className="w-20 h-20 object-cover rounded-sm"
+                    className="w-36 h-20 object-cover rounded-sm"
                   />
                   <div>
                     <h2 className="text-xl font-semibold">{project.title}</h2>
