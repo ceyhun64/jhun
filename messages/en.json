@@ -120,7 +120,9 @@
       "p1": "This project was developed using the best tools modern web technologies offer. Each technology was carefully selected to maximize performance, security, and user experience. During development, we focused on component-based architecture, reusable code, and optimized rendering performance.",
       "p2": "The user interface was designed to provide a clean yet impactful visual experience. The design system is built on principles of consistency, readability, and accessibility. Modern CSS frameworks and utility tools were used to provide a strong styling foundation.",
       "p3": "On the frontend, powerful technologies like React and Next.js provided great advantages in terms of fast load times and SEO optimization. Additionally, Tailwind CSS accelerated the design process and made development more flexible.",
-      "p4": "As a result, this technology stack forms a modern and sustainable infrastructure that supports not only today’s needs but also future scalability goals."
+      "p4": "As a result, this technology stack forms a modern and sustainable infrastructure that supports not only today’s needs but also future scalability goals.",
+      "p5": "The project also delivers a seamless experience across all devices thanks to responsive design and a mobile-first approach. Every aspect of the design was optimized for usability and accessibility, ensuring smooth user interactions.",
+      "p6": "Performance optimizations were implemented to minimize page load times, including efficient media and image handling. This approach improves user experience while providing a solid foundation for SEO and overall site performance."
     },
     "links": {
       "openGithub": "Open on GitHub",

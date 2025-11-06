@@ -206,7 +206,6 @@ export default function ProjectDetailClient({ dict, locale }: Props) {
       >
         {/* Sol: Görseller */}
         <div className="w-full lg:w-1/2 flex flex-col gap-6">
-        
           <motion.div
             className="relative rounded-xl overflow-hidden border border-white/10 bg-white/5 backdrop-blur-md shadow-2xl"
             whileHover={{ scale: 1.02 }}
@@ -298,15 +297,46 @@ export default function ProjectDetailClient({ dict, locale }: Props) {
         </div>
 
         {/* Sağ: Bilgi Alanı */}
-        <div className="relative flex-1 flex flex-col justify-center gap-6 md:p-0">
-          {/* Glow arka plan */}
-          <div className="absolute inset-0 -z-10">
-            <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-96 h-96 bg-gradient-to-r from-amber-400 via-orange-400 to-yellow-300 opacity-25 rounded-full blur-3xl"></div>
-            <div className="absolute bottom-0 right-1/4 w-72 h-72 bg-gradient-to-r from-amber-300 via-orange-500 to-yellow-400 opacity-20 rounded-full blur-2xl"></div>
+        <div className="relative flex-1 flex flex-col justify-center gap-6 md:gap-3  md:p-0 ">
+          <div className="absolute inset-0 -z-10 overflow-hidden rounded-4xl">
+            {/* Büyük yumuşak glow top */}
+            <motion.div
+              animate={{ x: [-100, 100, -100], y: [-50, 50, -50] }}
+              transition={{ repeat: Infinity, duration: 20, ease: "easeInOut" }}
+              className="absolute top-1/4 left-1/2 w-[600px] h-[600px] bg-gradient-to-tr from-amber-400 via-amber-500 to-amber-300 opacity-20 rounded-full filter blur-3xl"
+            ></motion.div>
+
+            {/* Küçük glow toplar */}
+            <motion.div
+              animate={{ x: [50, -50, 50], y: [-30, 30, -30] }}
+              transition={{ repeat: Infinity, duration: 15, ease: "easeInOut" }}
+              className="absolute bottom-1/4 right-1/3 w-72 h-72 bg-gradient-to-br from-amber-300 via-amber-400 to-amber-500 opacity-15 rounded-full filter blur-2xl"
+            ></motion.div>
+
+            {/* Yavaş hareket eden küçük partiküller */}
+            <div className="absolute inset-0 pointer-events-none">
+              {[...Array(20)].map((_, i) => (
+                <motion.div
+                  key={i}
+                  animate={{ y: [-10, 10], x: [-5, 5] }}
+                  transition={{
+                    repeat: Infinity,
+                    duration: 5 + i,
+                    ease: "easeInOut",
+                    delay: i * 0.3,
+                  }}
+                  className={`absolute w-1 h-1 bg-amber-200/40 rounded-full`}
+                  style={{
+                    top: `${Math.random() * 100}%`,
+                    left: `${Math.random() * 100}%`,
+                  }}
+                />
+              ))}
+            </div>
           </div>
 
           {/* Başlık */}
-          <h1 className="text-3xl md:text-6xl font-extrabold tracking-tight font-mono text-transparent bg-clip-text bg-gradient-to-r from-amber-500 via-amber-300 to-yellow-100 drop-shadow-[0_0_12px_rgba(255,180,0,0.7)] hover:drop-shadow-[0_0_20px_rgba(255,200,0,0.9)] transition-shadow duration-300">
+          <h1 className=" p-0 md:p-4 text-3xl md:text-6xl font-extrabold tracking-tight font-mono text-transparent bg-clip-text bg-gradient-to-r from-amber-500 via-amber-300 to-yellow-100 drop-shadow-[0_0_12px_rgba(255,180,0,0.7)] hover:drop-shadow-[0_0_20px_rgba(255,200,0,0.9)] transition-shadow duration-300">
             <GradientText
               gradient="linear-gradient(90deg, #f59e0b 0%, #fbbf24 40%, #fef3c7 60%, #fbbf24 80%, #f59e0b 100%)"
               text={title}
@@ -315,15 +345,15 @@ export default function ProjectDetailClient({ dict, locale }: Props) {
           </h1>
 
           {/* Neon alt çizgi */}
-          <div className="h-1 w-24 bg-gradient-to-r from-blue-400 via-blue-500 to-blue-600 rounded-full mt-2"></div>
+          <div className="h-1 w-24 bg-gradient-to-r from-blue-400 via-blue-500 to-blue-600 rounded-full mt-2 md:ms-4 "></div>
 
           {/* Özet */}
-          <p className="text-gray-200 text-lg md:text-xl leading-relaxed font-sans">
+          <p className="text-gray-200 text-lg md:text-xl leading-relaxed font-sans p-0 md:p-4 ">
             {summary}
           </p>
 
           {/* Açıklama */}
-          <p className="text-gray-300 leading-relaxed text-sm md:text-md font-mono whitespace-pre-line">
+          <p className="text-gray-300 leading-relaxed text-sm md:text-md font-mono whitespace-pre-line p-0 md:p-4 ">
             {description}
           </p>
 
@@ -399,7 +429,21 @@ export default function ProjectDetailClient({ dict, locale }: Props) {
                 <span className="text-blue-400">&lt;p&gt;</span>
                 {"\n    "}
                 {dict.technologiesIntro.p4}
-                <span className="ml-1 animate-blink text-green-400">_</span>
+                {"\n  "}
+                <span className="text-blue-400">&lt;/p&gt;</span>
+                {"\n"}
+                  {"\n  "}
+                <span className="text-blue-400">&lt;p&gt;</span>
+                {"\n    "}
+                {dict.technologiesIntro.p5}
+                {"\n  "}
+                <span className="text-blue-400">&lt;/p&gt;</span>
+                {"\n"}  {"\n  "}
+                <span className="text-blue-400">&lt;p&gt;</span>
+                {"\n    "}
+                {dict.technologiesIntro.p6}
+                                <span className="ml-1 animate-blink text-green-400">_</span>
+
                 {"\n  "}
                 <span className="text-blue-400">&lt;/p&gt;</span>
                 {"\n"}

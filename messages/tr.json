@@ -118,7 +118,9 @@
       "p1": "Bu proje, modern web teknolojilerinin sunduğu en iyi araçlar kullanılarak geliştirildi. Her teknoloji, performans, güvenlik ve kullanıcı deneyimini maksimize edecek şekilde dikkatlice seçildi. Geliştirme sürecinde özellikle bileşen tabanlı yapı, yeniden kullanılabilir kod mimarisi ve optimize edilmiş render performansı hedeflendi.",
       "p2": "Kullanıcı arayüzü, sade ama etkileyici bir görsel deneyim sunmak amacıyla tasarlandı. Tasarım sistemi; tutarlılık, okunabilirlik ve erişilebilirlik prensipleri üzerine kuruldu. Stil katmanında güçlü bir yapı sağlamak için modern CSS framework’leri ve yardımcı araçlar tercih edildi.",
       "p3": "Frontend tarafında React ve Next.js gibi güçlü teknolojiler, hızlı yüklenme süreleri ve SEO uyumluluğu açısından büyük avantaj sağladı. Ek olarak, Tailwind CSS sayesinde tasarım süreçleri hızlanırken, geliştirme süreci daha esnek hale getirildi.",
-      "p4": "Sonuç olarak bu teknoloji yığını, projenin sadece bugünkü ihtiyaçlarını değil, gelecekteki ölçeklenebilirlik hedeflerini de destekleyen modern, sürdürülebilir bir altyapı oluşturdu."
+      "p4": "Sonuç olarak bu teknoloji yığını, projenin sadece bugünkü ihtiyaçlarını değil, gelecekteki ölçeklenebilirlik hedeflerini de destekleyen modern, sürdürülebilir bir altyapı oluşturdu.",
+      "p5": "Proje ayrıca responsive tasarım ve mobil öncelikli yaklaşım ile her cihazda kusursuz bir deneyim sunuyor. Kullanıcı etkileşimi ve erişilebilirlik testleri ile tasarımın her aşaması optimize edildi.",
+      "p6": "Performans optimizasyonları kapsamında sayfa yükleme süreleri minimize edildi, görseller ve medya içerikleri modern tekniklerle sıkıştırıldı. Bu sayede hem kullanıcı deneyimi yükseltildi hem de SEO açısından güçlü bir temel sağlandı."
     },
     "links": {
       "openGithub": "GitHub'da Aç",
