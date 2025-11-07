@@ -1,9 +1,7 @@
 // schema.prisma
 generator client {
   provider      = "prisma-client-js"
-  // Hatanızdaki "rhel-openssl-3.0.x" runtime'ını ekleyin
   binaryTargets = ["native", "rhel-openssl-3.0.x"]
-  // veya sadece "rhel-openssl-3.0.x" ekleyebilirsiniz.
 }
 
 datasource db {
