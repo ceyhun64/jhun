@@ -5,6 +5,7 @@ import ScrollToTopButton from "@/components/layout/scroll";
 import { Toaster } from "sonner";
 import SocialSidebar from "@/components/layout/socialSidebar";
 
+// Fontlar
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -15,14 +16,16 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-// Multi-locale destekli metadata
-export const generateMetadata = ({
+// ✅ generateMetadata artık async olmalı ve params beklenmeli
+export async function generateMetadata({
   params,
 }: {
-  params: { locale: string };
-}) => {
-  const locale = params.locale === "tr" ? "tr_TR" : "en_US";
-  const htmlLang = params.locale || "tr";
+  params: Promise<{ locale: string }>;
+}) {
+  // params bir Promise olduğu için await gerekiyor
+  const { locale } = await params;
+  const htmlLang = locale || "tr";
+  const ogLocale = locale === "tr" ? "tr_TR" : "en_US";
 
   return {
     title:
@@ -35,12 +38,14 @@ export const generateMetadata = ({
         "Kurumsal web siteleri, e-ticaret platformları ve özel dijital çözümlerle markanızı büyütün.",
       siteName: "Jhun Tech",
       images: ["/og-image.png"],
-      locale,
+      locale: ogLocale,
       type: "website",
     },
-    lang: htmlLang, // HTML lang buradan otomatik uygulanır
+    // Next.js 15'te <html lang="..."> otomatik metadata.lang'tan alınır
+    lang: htmlLang,
   };
-};
+}
+
 export default function RootLayout({
   children,
 }: {
@@ -55,8 +60,10 @@ export default function RootLayout({
       {/* Sosyal medya sidebar */}
       <SocialSidebar />
 
+      {/* Yukarı kaydır butonu */}
       <ScrollToTopButton />
 
+      {/* Bildirim toasti */}
       <Toaster
         richColors
         position="bottom-right"
