@@ -2,9 +2,6 @@ import type { NextConfig } from "next";
 import { PrismaPlugin } from "@prisma/nextjs-monorepo-workaround-plugin";
 
 const nextConfig: NextConfig = {
-  // ✅ Yeni Turbopack anahtarını buraya koyuyoruz
-  turbopack: {},
-
   webpack: (config, { isServer }) => {
     if (isServer) {
       config.plugins.push(new PrismaPlugin());
@@ -12,7 +9,6 @@ const nextConfig: NextConfig = {
     return config;
   },
 
-  // ⚠️ images.domains yerine artık remotePatterns kullanılmalı
   images: {
     remotePatterns: [
       {
