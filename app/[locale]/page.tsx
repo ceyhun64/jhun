@@ -11,8 +11,8 @@ type Props = {
   params: { locale: "tr" | "en" };
 };
 
-export default function Home({ params }: Props) {
-  const { locale } = params; // await kaldırıldı
+export default async function Home({ params }: Props) {
+  const { locale } = await params; 
 
   return (
     <div className="relative bg-black">
