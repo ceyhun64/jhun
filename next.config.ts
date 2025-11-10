@@ -1,20 +1,10 @@
-/** @type {import('next').NextConfig} */
+import type { NextConfig } from "next";
 
-const nextConfig = {
-  output: "standalone",
-
+const nextConfig: NextConfig = {
+  /* Mevcut diğer config seçenekleriniz varsa buraya bırakın */
   images: {
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "res.cloudinary.com",
-        port: "",
-        pathname: "/**",
-      },
-    ],
+    domains: ["res.cloudinary.com"], // Mevcut ayar
   },
-  // i18n kaldırıldı, çünkü App Router kendi yönetiyor
 };
 
 export default nextConfig;
-
