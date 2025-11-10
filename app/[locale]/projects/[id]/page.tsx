@@ -6,8 +6,8 @@ type Props = {
   params: { locale: "tr" | "en" };
 };
 
-export default async function ProjectDetailPage({ params }: Props) {
-  const { locale } = await params;
+export default function ProjectDetailPage({ params }: Props) {
+  const { locale } = params; // await kaldırıldı
   return (
     <div className="bg-black">
       <Navbar locale={locale} />
