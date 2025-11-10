@@ -3,5 +3,10 @@
     "app/api/**/*/route.[jt]s": {
       "includeFiles": "node_modules/.prisma/client/**"
     }
+  },
+  "build": {
+    "env": {
+      "PRISMA_CLIENT_ENGINE_TYPE": "library"
+    }
   }
 }

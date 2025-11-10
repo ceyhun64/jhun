@@ -1,13 +1,11 @@
 generator client {
-  provider      = "prisma-client-js"
-  binaryTargets = ["native", "rhel-openssl-3.0.x"]
+  provider = "prisma-client-js"
 }
 
 datasource db {
   provider = "mongodb"
   url      = env("DATABASE_URL")
 }
-
 
 model Project {
   id          String  @id @default(auto()) @map("_id") @db.ObjectId
