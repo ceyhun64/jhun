@@ -1,9 +1,8 @@
 import Navbar from "@/components/layout/navbar";
 import Footer from "@/components/layout/footer";
 import About from "@/components/contact/about";
-import type PageProps from "next/app"; // Next.js tiplerini kontrol et
 
-type Props = PageProps & {
+type Props = {
   params: { locale: "tr" | "en" };
 };
 
