@@ -1,7 +1,6 @@
 // schema.prisma
 generator client {
   provider      = "prisma-client-js"
-  // Bu satırın var olduğundan emin olun:
   binaryTargets = ["native", "rhel-openssl-3.0.x"]
 }
 
