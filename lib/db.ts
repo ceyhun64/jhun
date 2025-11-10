@@ -1,18 +1,14 @@
 import { PrismaClient } from "@prisma/client";
 
-declare global {
-  // Global prisma tipini tanımlıyoruz (Node.js hot-reload fix için)
-  // eslint-disable-next-line no-var
-  var prisma: PrismaClient | undefined;
-}
+const prismaClientSingleton = () => new PrismaClient();
 
-const prisma =
-  process.env.NODE_ENV === "production"
-    ? new PrismaClient()
-    : global.prisma || new PrismaClient();
+declare const globalThis: {
+  prisma: ReturnType<typeof prismaClientSingleton>;
+  prismaGlobal: ReturnType<typeof prismaClientSingleton> | undefined;
+} & typeof global;
 
-if (process.env.NODE_ENV !== "production") {
-  global.prisma = prisma;
-}
+const prisma = globalThis.prismaGlobal ?? prismaClientSingleton();
 
 export default prisma;
+
+if (process.env.NODE_ENV !== "production") globalThis.prismaGlobal = prisma;
