@@ -14,6 +14,7 @@ import type { EmblaCarouselType } from "embla-carousel";
 import { RollingText } from "../ui/shadcn-io/rolling-text";
 import { CardContainer, CardBody, CardItem } from "../ui/shadcn-io/3d-card";
 
+
 interface GalleryItem {
   id: string;
   title: string;
@@ -57,7 +58,6 @@ const GalleryClient: React.FC<GalleryClientProps> = ({ dict, locale }) => {
     fetchProjects();
   }, []);
 
-  console.log("items", items);
   // 👇 GÜNCELLENMİŞ KAYDIRMA KONTROL BLOĞU
   useEffect(() => {
     if (!carouselApi) return;
