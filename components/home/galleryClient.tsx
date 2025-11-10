@@ -57,6 +57,7 @@ const GalleryClient: React.FC<GalleryClientProps> = ({ dict, locale }) => {
     fetchProjects();
   }, []);
 
+  console.log("items", items);
   // 👇 GÜNCELLENMİŞ KAYDIRMA KONTROL BLOĞU
   useEffect(() => {
     if (!carouselApi) return;
