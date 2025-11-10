@@ -1,9 +1,6 @@
 {
   "functions": {
-    "api/**/*.[jt]s": {
-      "includeFiles": "node_modules/.prisma/client/**"
-    },
-    "api/**/*.[jt]sx": {
+    "app/api/**/*/route.[jt]s": {
       "includeFiles": "node_modules/.prisma/client/**"
     }
   }
