@@ -1,12 +1,13 @@
 {
   "functions": {
-    "app/api/**/*/route.[jt]s": {
+    "api/**/*.[jt]s": {
       "includeFiles": "node_modules/.prisma/client/**"
-    }
-  },
-  "build": {
-    "env": {
-      "PRISMA_CLIENT_ENGINE_TYPE": "library"
+    },
+    "api/**/*.[jt]sx": {
+      "includeFiles": "node_modules/.prisma/client/**"
+    },
+    "api/**/*.ts": {
+      "includeFiles": "node_modules/.prisma/client/**"
     }
   }
 }
