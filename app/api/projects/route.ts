@@ -1,4 +1,5 @@
 // app/api/projects/route.ts
+export const runtime = "nodejs";
 import { NextResponse } from "next/server";
 import prisma from "@/lib/db";
 import type { NextRequest } from "next/server";
@@ -58,7 +59,7 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL ;
+    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
 
     // Dosya upload helper
     async function uploadFile(file: File | null) {
