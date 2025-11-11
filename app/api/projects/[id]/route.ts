@@ -61,7 +61,9 @@ export async function GET(
 
   const result = {
     ...project,
-    technologies: project.technologies.map((pt) => pt.technology),
+    technologies: project.technologies.map(
+      (pt) => pt.technology.name // name özelliğini kullan
+    ),
   };
 
   return NextResponse.json({ project: result });
