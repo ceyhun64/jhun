@@ -18,6 +18,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://jhun.vercel.app"), // ✅ Düzeltme burada
   title:
     "Jhun Tech | Web Geliştirme & Dijital Çözümler – Modern, Hızlı ve Etkileyici Web Siteleri",
   description:
@@ -27,7 +28,7 @@ export const metadata: Metadata = {
     description:
       "Kurumsal web siteleri, e-ticaret platformları ve özel dijital çözümlerle markanızı büyütün.",
     siteName: "Jhun Tech",
-    images: ["/og-image.png"],
+    images: ["/og-image.png"], // Artık relative olabilir
     locale: "tr_TR",
     type: "website",
   },
